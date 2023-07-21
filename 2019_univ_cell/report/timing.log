@@ -1,0 +1,65 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : CONV
+Version: N-2017.09-SP2
+Date   : Sat Jul 16 10:13:55 2022
+****************************************
+
+Operating Conditions: slow   Library: slow
+Wire Load Model Mode: top
+
+  Startpoint: cnt_state_reg[0]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: iaddr[11] (output port clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  CONV               tsmc13_wl10           slow
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clk (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.50       0.50
+  cnt_state_reg[0]/CK (DFFRX1)             0.00       0.50 r
+  cnt_state_reg[0]/Q (DFFRX1)              0.73       1.23 f
+  U1103/Y (NOR2X4)                         0.28       1.51 r
+  U1063/Y (NAND2X1)                        0.37       1.88 f
+  U745/Y (NAND2XL)                         0.38       2.26 r
+  U744/Y (XOR2X1)                          0.54       2.80 f
+  DP_OP_77J1_125_2509/U12/CO (ADDFX1)      0.55       3.36 f
+  DP_OP_77J1_125_2509/U11/CO (ADDFXL)      0.50       3.86 f
+  DP_OP_77J1_125_2509/U10/CO (ADDFXL)      0.53       4.38 f
+  DP_OP_77J1_125_2509/U9/CO (ADDFXL)       0.53       4.91 f
+  DP_OP_77J1_125_2509/U8/CO (ADDFXL)       0.53       5.44 f
+  DP_OP_77J1_125_2509/U7/CO (ADDFXL)       0.53       5.97 f
+  DP_OP_77J1_125_2509/U6/CO (ADDFXL)       0.53       6.49 f
+  DP_OP_77J1_125_2509/U5/CO (ADDFXL)       0.53       7.03 f
+  DP_OP_77J1_125_2509/U4/CO (ADDFX1)       0.39       7.42 f
+  DP_OP_77J1_125_2509/U3/CO (ADDFX1)       0.41       7.83 f
+  U524/Y (NAND2BX1)                        0.28       8.11 f
+  U1304/Y (OAI2BB1X1)                      0.20       8.31 r
+  U1305/Y (XOR2X1)                         0.23       8.54 r
+  U1002/Y (OA21XL)                         0.69       9.22 r
+  U1001/Y (INVX12)                         0.67       9.89 f
+  iaddr[11] (out)                          0.00       9.89 f
+  data arrival time                                   9.89
+
+  clock clk (rise edge)                   10.00      10.00
+  clock network delay (ideal)              0.50      10.50
+  clock uncertainty                       -0.10      10.40
+  output external delay                   -0.50       9.90
+  data required time                                  9.90
+  -----------------------------------------------------------
+  data required time                                  9.90
+  data arrival time                                  -9.89
+  -----------------------------------------------------------
+  slack (MET)                                         0.01
+
+
+1
