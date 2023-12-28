@@ -12,7 +12,7 @@ uniquify
 set_fix_multiple_port_nets -all -buffer_constants [get_designs *]
 
 #Synthesis all design
-#compile -map_effort high -area_effort high
+compile -map_effort high -area_effort high
 #compile -map_effort high -area_effort high -inc
 compile
 

@@ -1,8 +1,8 @@
 `timescale 1ns/10ps
-`define CYCLE      50.0  
+`define CYCLE      30.0  
 `define SDFFILE    "./geofence_syn.sdf"
 `define End_CYCLE  1000000
-`define PAT        "grad.data"
+`define PAT        "univ.data"
 
 module testfixture();
 integer fd;
@@ -12,9 +12,9 @@ integer charcount;
 integer pass=0;
 integer fail=0;
 string line;
+reg [5:0] npoint;
 reg [9:0] X;
 reg [9:0] Y;
-reg [10:0] R;
 
 reg clk = 0;
 wire valid;
@@ -24,7 +24,6 @@ geofence u_geofence(.clk(clk),
         .reset(reset),
         .X(X),
         .Y(Y),
-        .R(R),
         .valid(valid),
         .is_inside(is_inside));
 
@@ -36,14 +35,16 @@ always begin #(`CYCLE/2) clk = ~clk; end
 
 initial begin
     $fsdbDumpfile("geofence.fsdb");
-    $fsdbDumpvars();
-    $fsdbDumpMDA;
+    $fsdbDumpvars(0,"+all");
+    $fsdbDumpSVA;
 end
 
-//initial begin
-//    $dumpfile("geofence.vcd");
-//    $dumpvars;
-//end
+/*
+initial begin
+    $dumpfile("geofence.vcd");
+    $dumpvars;
+end
+*/
 
 initial begin
     $display("----------------------");
@@ -112,7 +113,6 @@ always @(negedge clk ) begin
     if (reset) begin
         X=0;
         Y=0;
-        R=0;
         ap_num = 0;
     end 
     else begin
@@ -124,18 +124,18 @@ always @(negedge clk ) begin
                     if( line.substr(0, 5) == "object") begin
                         charcount = $sscanf(line, "object %d %d",objnum,obj_isin);
                         if(obj_isin == 1)
-                            $display ("Object%0d(in):   X     Y     R",objnum);
+                            $display ("Scenario%0d(in):     X     Y",objnum);
                         else
-                            $display ("Object%0d(out):  X     Y     R",objnum);
-                        ap_num=1;
+                            $display ("Scenario%0d(out):    X     Y",objnum);
+                        ap_num=0;
                         charcount = $fgets (line, fd);
-                        charcount = $sscanf(line, "%d %d %d",X,Y,R);
-                        $display("%d: %d, %d, %d",ap_num, X ,Y,R);
+                        charcount = $sscanf(line, "%d %d",X,Y);
+                        $display("        Object:  %d, %d", X ,Y);
                     end 
                     else begin
                         ap_num = ap_num+1;
-                        charcount = $sscanf(line, "%d %d %d",X,Y,R);
-                        $display("%d: %d, %d, %d",ap_num, X ,Y,R);
+                        charcount = $sscanf(line, "%d %d",X,Y);
+                        $display("           AP%1d:  %d, %d",ap_num, X ,Y);
                     end
                 end
             end
@@ -143,7 +143,7 @@ always @(negedge clk ) begin
         else begin
              $fclose(fd);
              $display ("-------------------------------------------------");
-             if(fail == 0)
+             if(pass == 50 && fail == 0)
                  $display("--    Simulation finish,  ALL PASS             --");
              else
                  $display("-- Simulation finish,  Pass = %2d , Fail = %2d   --",pass,fail);
