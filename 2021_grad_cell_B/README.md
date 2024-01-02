@@ -8,3 +8,8 @@
 這個LAB也需要考慮精度的問題，所以我把變數參數化，以方便自己調整需要多少bit的精度。<br>
 
 最後的建議，這個題目的clock cycle給很大，基本不用怕timing的問題，把function作對就好。我自己是花太久的時間在設計架構，一直對於硬體使用率過低這塊糾結很久，導致最後slack還有20多。
+
+
+### 參考資料
+
+https://github.com/derek8955/ic_contest/blob/main/2021_geo/geofence.v 
