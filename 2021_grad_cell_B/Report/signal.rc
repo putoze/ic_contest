@@ -1,0 +1,136 @@
+Magic 271485
+Revision Verdi_P-2019.06
+
+; Window Layout <x> <y> <width> <height> <signalwidth> <valuewidth>
+viewPort -1 31 1203 906 283 94
+
+; File list:
+; openDirFile [-d delimiter] [-s time_offset] [-rf auto_bus_rule_file] path_name file_name
+openDirFile -d / "" "/home/rain/IC_contest/2021_grad_cell_B/geofence.fsdb"
+
+; file time scale:
+; fileTimeScale ### s|ms|us|ns|ps
+
+; signal spacing:
+signalSpacing 5
+
+; windowTimeUnit is used for zoom, cursor & marker
+; waveform viewport range
+zoom 317128.173828 399354.736328
+cursor 332500.000000
+marker 0.000000
+
+; user define markers
+; userMarker time_pos marker_name color linestyle
+userMarker 437445.313 M1 ID_GREEN5 long_dashed
+
+; visible top row signal index
+top 18
+; marker line index
+markerPos 58
+
+; event list
+; addEvent event_name event_expression
+; curEvent event_name
+
+
+
+COMPLEX_EVENT_BEGIN
+
+
+COMPLEX_EVENT_END
+
+
+
+; toolbar current search type
+; curSTATUS search_type
+curSTATUS ByChange
+
+
+addGroup "G1"
+addSubGroup "I/O"
+activeDirFile "" "/home/rain/IC_contest/2021_grad_cell_B/geofence.fsdb"
+addSignal -h 15 /testfixture/u_geofence/clk
+addSignal -h 15 -UNSIGNED -UDEC -holdScope R[10:0]
+addSignal -h 15 -UNSIGNED -UDEC -holdScope X[9:0]
+addSignal -h 15 -UNSIGNED -UDEC -holdScope Y[9:0]
+addSignal -h 15 -holdScope is_inside
+addSignal -h 15 -holdScope reset
+addSignal -h 15 -holdScope valid
+endSubGroup "I/O"
+addSubGroup "FSM"
+addSignal -h 15 /testfixture/u_geofence/curr_state[2:0]
+addSignal -h 15 -holdScope next_state[2:0]
+addSignal -h 15 -holdScope state_input_done
+addSignal -h 15 -holdScope state_sort_done
+addSignal -h 15 -holdScope all_round_done
+addSignal -h 15 -holdScope loc_ff_cnt_one
+addSignal -h 15 -holdScope loc_ff_pt_zero
+endSubGroup "FSM"
+addSubGroup "G2"
+addSubGroup "HERO"
+addSignal -h 15 -UNSIGNED -UDEC /testfixture/u_geofence/ref_x[9:0]
+addSignal -h 15 -UNSIGNED -UDEC -holdScope ref_y[9:0]
+addSignal -h 15 -UNSIGNED -UDEC -holdScope s_mul_out[21:0]
+addSignal -h 15 -UNSIGNED -UDEC -holdScope hero_area[21:0]
+addSignal -h 15 -UNSIGNED -UDEC -holdScope hero_area_temp[21:0]
+addSignal -h 15 -UNSIGNED -UDEC -holdScope polygon_area_actual[21:0]
+addSignal -h 15 -2COMP -UDEC -holdScope polygon_area[21:0]
+addSignal -h 15 -UNSIGNED -UDEC -holdScope polygon_area_temp[21:0]
+addSignal -h 15 -UNSIGNED -UDEC -holdScope radicand_in[21:0]
+addSignal -h 15 -2COMP -UDEC -holdScope s[10:0]
+addSignal -h 15 -2COMP -UDEC -holdScope s0[10:0]
+addSignal -h 15 -2COMP -UDEC -holdScope s1[10:0]
+addSignal -h 15 -2COMP -UDEC -holdScope s2[10:0]
+addSignal -h 15 -UNSIGNED -UDEC -holdScope s_ff[10:0]
+addSignal -h 15 -UNSIGNED -UDEC -holdScope s0_ff[10:0]
+addSignal -h 15 -UNSIGNED -UDEC -holdScope s1_ff[10:0]
+addSignal -h 15 -UNSIGNED -UDEC -holdScope s2_ff[10:0]
+addSignal -h 15 -UNSIGNED -UDEC -holdScope square_root_out[10:0]
+endSubGroup "HERO"
+addSubGroup "LOC"
+addSignal -h 15 -UNSIGNED -UDEC /testfixture/u_geofence/loc_r[0:5]
+addSignal -h 15 -UNSIGNED -UDEC -holdScope loc_x[0:5]
+addSignal -h 15 -UNSIGNED -UDEC -holdScope loc_y[0:5]
+addSignal -h 15 -holdScope loc_ff[0:5]
+addSignal -h 15 -holdScope loc_ff_up_cnt[2:0]
+addSignal -h 15 -holdScope loc_ff_cnt[2:0]
+addSignal -h 15 -holdScope loc_ff_down_cnt[2:0]
+addSignal -h 15 -holdScope loc_ff_pt[2:0]
+addSignal -h 15 -holdScope loc_ff_down_pt[2:0]
+endSubGroup "LOC"
+addSubGroup "Cross"
+addSignal -h 15 -2COMP -UDEC /testfixture/u_geofence/cross_result[21:0]
+addSignal -h 15 -holdScope cross_result_lr_zero
+endSubGroup "Cross"
+addSubGroup "distance"
+addSignal -h 15 -UNSIGNED -UDEC /testfixture/u_geofence/dis_a[10:0]
+addSignal -h 15 -UNSIGNED -UDEC -holdScope dis_b[10:0]
+addSignal -h 15 -UNSIGNED -UDEC -holdScope dis_c[10:0]
+addSignal -h 15 -UNSIGNED -UDEC -holdScope dis_a_square[21:0]
+addSignal -h 15 -UNSIGNED -UDEC -holdScope dis_a_square_ff[21:0]
+endSubGroup "distance"
+endSubGroup "G2"
+addGroup "G2"
+addSignal -h 15 -2COMP -UDEC /testfixture/u_geofence/loc_a_dis_x[10:0]
+addSignal -h 15 -2COMP -UDEC -holdScope loc_a_dis_y[10:0]
+addGroup "G3"
+
+; getSignalForm Scope Hierarchy Status
+; active file of getSignalForm
+activeDirFile "" "/home/rain/IC_contest/2021_grad_cell_B/geofence.fsdb"
+
+GETSIGNALFORM_SCOPE_HIERARCHY_BEGIN
+getSignalForm close
+
+"/testfixture"
+"/testfixture/u_geofence"
+
+SCOPE_LIST_BEGIN
+"/testfixture"
+"/testfixture/u_geofence"
+SCOPE_LIST_END
+
+GETSIGNALFORM_SCOPE_HIERARCHY_END
+
+
