@@ -1,9 +1,6 @@
-
-FTP account:                       Bxxxxx
-
-Level:                             A/B/C/D
+Level:                             A
 Object pass number :               50
-Synthesis area:                    120000
+Synthesis area:                    51658
 
 --- RTL category---
 HDL simulator :                    ncverilog/irun/vcs/vsim/... 

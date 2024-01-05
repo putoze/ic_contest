@@ -1,0 +1,61 @@
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : LASER
+Version: N-2017.09-SP2
+Date   : Tue Apr  4 18:26:57 2023
+****************************************
+
+Operating Conditions: slow   Library: slow
+Wire Load Model Mode: top
+
+  Startpoint: max_c2_dirty_reg[3]
+              (rising edge-triggered flip-flop clocked by CLK)
+  Endpoint: max_c1_dirty_reg[39]
+            (rising edge-triggered flip-flop clocked by CLK)
+  Path Group: CLK
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock CLK (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  max_c2_dirty_reg[3]/CK (DFFQX1)                         0.00       0.00 r
+  max_c2_dirty_reg[3]/Q (DFFQX1)                          0.26       0.26 f
+  U3226/Y (OR2X1)                                         0.27       0.54 f
+  DP_OP_690J1_122_3642/U25/S (CMPR42X1)                   0.83       1.37 f
+  DP_OP_690J1_122_3642/U21/S (CMPR42X1)                   0.79       2.15 f
+  intadd_0/U6/CO (ADDFXL)                                 0.54       2.70 f
+  intadd_0/U5/CO (ADDFXL)                                 0.38       3.07 f
+  intadd_0/U4/CO (ADDFXL)                                 0.38       3.45 f
+  intadd_0/U3/S (ADDFXL)                                  0.39       3.84 r
+  U3365/Y (NAND2XL)                                       0.09       3.93 f
+  U3439/Y (INVXL)                                         0.08       4.01 r
+  intadd_0/U2/S (ADDFXL)                                  0.70       4.72 f
+  U3432/Y (AOI222XL)                                      0.42       5.14 r
+  U3794/Y (AOI2BB1X1)                                     0.22       5.36 r
+  U3212/Y (AOI211X1)                                      0.11       5.47 f
+  U3210/Y (NAND3X1)                                       0.26       5.73 r
+  U3440/Y (CLKINVX1)                                      0.56       6.29 f
+  U4317/Y (AOI222XL)                                      0.46       6.75 r
+  U3536/Y (INVXL)                                         0.06       6.81 f
+  max_c1_dirty_reg[39]/D (DFFQX1)                         0.00       6.81 f
+  data arrival time                                                  6.81
+
+  clock CLK (rise edge)                                   8.00       8.00
+  clock network delay (ideal)                             0.00       8.00
+  max_c1_dirty_reg[39]/CK (DFFQX1)                        0.00       8.00 r
+  library setup time                                     -0.26       7.74
+  data required time                                                 7.74
+  --------------------------------------------------------------------------
+  data required time                                                 7.74
+  data arrival time                                                 -6.81
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.93
+
+
+1

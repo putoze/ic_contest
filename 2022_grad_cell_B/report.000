@@ -1,0 +1,15 @@
+
+Level:                             A
+cycle:                             362886
+Synthesis area:                    9990
+
+--- RTL category---
+HDL simulator :                    ncverilog/irun/vcs/vsim/... 
+RTL filename :                     JAM.v            
+
+--- Pre-layout gate-level ---
+gate-levelfilename:                JAM_syn.v  
+gate-level sdf filename:           JAM_syn.sdf        
+
+-----(annotation)--------------------------------------------------------
+ (optional, write down anything that you want grader know)

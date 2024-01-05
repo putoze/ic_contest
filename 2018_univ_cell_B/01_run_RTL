@@ -1,1 +1,0 @@
-ncverilog tb.v -define RTL -debug -define tb1

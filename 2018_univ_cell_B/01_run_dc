@@ -1,1 +1,0 @@
-dc_shell-t -f DC_syn.tcl | tee ./Netlist/syn.log

@@ -1,0 +1,87 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : JAM
+Version: N-2017.09-SP2
+Date   : Fri Jan  5 20:38:14 2024
+****************************************
+
+Operating Conditions: slow   Library: slow
+Wire Load Model Mode: top
+
+  Startpoint: job_list_reg[1][1]
+              (rising edge-triggered flip-flop clocked by CLK)
+  Endpoint: job_list_reg[7][2]
+            (rising edge-triggered flip-flop clocked by CLK)
+  Path Group: CLK
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  JAM                tsmc13_wl10           slow
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock CLK (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.50       0.50
+  job_list_reg[1][1]/CK (DFFRX4)           0.00       0.50 r
+  job_list_reg[1][1]/Q (DFFRX4)            0.56       1.06 f
+  U795/Y (OA21XL)                          0.39       1.45 f
+  U615/Y (AND2X2)                          0.25       1.70 f
+  U836/Y (OAI22X4)                         0.13       1.83 r
+  U835/Y (OAI2BB1X4)                       0.12       1.95 f
+  U783/Y (NOR3X6)                          0.12       2.07 r
+  U587/Y (NAND4X6)                         0.17       2.24 f
+  U1114/Y (OAI211X4)                       0.43       2.67 r
+  U628/Y (INVX12)                          0.18       2.84 f
+  U737/Y (NOR2X1)                          0.25       3.09 r
+  U736/Y (BUFX6)                           0.22       3.32 r
+  U724/Y (AO22X1)                          0.30       3.61 r
+  U1105/Y (AOI221X2)                       0.11       3.73 f
+  U762/Y (AOI2BB2X2)                       0.29       4.02 f
+  U761/Y (INVX6)                           0.29       4.30 r
+  U804/Y (CLKINVX12)                       0.21       4.51 f
+  U712/Y (OR2X8)                           0.17       4.68 f
+  U711/Y (AO22X4)                          0.25       4.93 f
+  U785/Y (NOR2BX1)                         0.36       5.29 f
+  U782/Y (NAND2X2)                         0.22       5.51 r
+  U570/Y (CLKINVX4)                        0.16       5.67 f
+  U705/Y (OAI22X2)                         0.18       5.85 r
+  U704/Y (AOI211X2)                        0.15       5.99 f
+  U802/Y (AOI31X2)                         0.29       6.29 r
+  U787/Y (OAI221X4)                        0.36       6.65 f
+  U790/Y (OR2XL)                           0.29       6.94 f
+  U863/Y (OAI221X4)                        0.43       7.37 r
+  U777/Y (CLKINVX1)                        0.17       7.54 f
+  U617/Y (CLKBUFX6)                        0.36       7.89 f
+  U590/Y (INVX3)                           0.16       8.06 r
+  U1102/Y (OAI22X4)                        0.13       8.18 f
+  U605/Y (INVX6)                           0.11       8.29 r
+  U533/Y (CLKINVX12)                       0.07       8.37 f
+  U623/Y (AOI2BB2X1)                       0.43       8.80 r
+  U749/Y (OA21X4)                          0.28       9.08 r
+  U726/Y (OAI22X1)                         0.19       9.27 f
+  U556/Y (AOI221X2)                        0.30       9.58 r
+  U554/Y (OAI22X4)                         0.17       9.74 f
+  U983/Y (AOI22X1)                         0.25       9.99 r
+  U600/Y (OAI21XL)                         0.24      10.23 f
+  job_list_reg[7][2]/D (DFFSX2)            0.00      10.23 f
+  data arrival time                                  10.23
+
+  clock CLK (rise edge)                   10.00      10.00
+  clock network delay (ideal)              0.50      10.50
+  clock uncertainty                       -0.10      10.40
+  job_list_reg[7][2]/CK (DFFSX2)           0.00      10.40 r
+  library setup time                      -0.14      10.26
+  data required time                                 10.26
+  -----------------------------------------------------------
+  data required time                                 10.26
+  data arrival time                                 -10.23
+  -----------------------------------------------------------
+  slack (MET)                                         0.03
+
+
+1

@@ -1,0 +1,1 @@
+ncverilog -sv tb.sv JAM.v -debug +define+P3
