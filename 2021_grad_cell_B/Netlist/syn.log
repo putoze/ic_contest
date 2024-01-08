@@ -181,9 +181,7 @@ link
   fast (library)              /usr/cad/Design_Kit/CBDK_IC_Contest_v2.5/SynopsysDC/db/fast.db
   dw_foundation.sldb (library) /usr/cad/synopsys/synthesis/cur/libraries/syn/dw_foundation.sldb
 
-Error: Width mismatch on port 'square_root' of reference to 'DW_sqrt_inst' in 'geofence'. (LINK-3)
-Warning: Unable to resolve reference 'DW_sqrt_inst' in 'geofence'. (LINK-5)
-0
+1
 #Setting Clock Constraints
 source -echo -verbose geofence.sdc
 # operating conditions and boundary conditions #
@@ -223,16 +221,13 @@ check_design
 ****************************************
 check_design summary:
 Version:     N-2017.09-SP2
-Date:        Tue Jan  2 18:42:12 2024
+Date:        Mon Jan  8 12:50:07 2024
 ****************************************
 
                    Name                                            Total
 --------------------------------------------------------------------------------
 Cells                                                               6
     Cells do not drive (LINT-1)                                     6
-
-Tristate                                                           24
-    A tristate bus has a non tri-state driver (LINT-34)            24
 --------------------------------------------------------------------------------
 
 Warning: In design 'geofence', cell 'B_134' does not drive any nets. (LINT-1)
@@ -241,30 +236,6 @@ Warning: In design 'geofence', cell 'C5488' does not drive any nets. (LINT-1)
 Warning: In design 'geofence', cell 'C5544' does not drive any nets. (LINT-1)
 Warning: In design 'geofence', cell 'C5547' does not drive any nets. (LINT-1)
 Warning: In design 'geofence', cell 'C5550' does not drive any nets. (LINT-1)
-Warning: In design 'geofence', three-state bus 'radicand_in[0]' has non three-state driver 'C5267/Z_0'. (LINT-34)
-Warning: In design 'geofence', three-state bus 'radicand_in[1]' has non three-state driver 'C5267/Z_1'. (LINT-34)
-Warning: In design 'geofence', three-state bus 'radicand_in[2]' has non three-state driver 'C5267/Z_2'. (LINT-34)
-Warning: In design 'geofence', three-state bus 'radicand_in[3]' has non three-state driver 'C5267/Z_3'. (LINT-34)
-Warning: In design 'geofence', three-state bus 'radicand_in[4]' has non three-state driver 'C5267/Z_4'. (LINT-34)
-Warning: In design 'geofence', three-state bus 'radicand_in[5]' has non three-state driver 'C5267/Z_5'. (LINT-34)
-Warning: In design 'geofence', three-state bus 'radicand_in[6]' has non three-state driver 'C5267/Z_6'. (LINT-34)
-Warning: In design 'geofence', three-state bus 'radicand_in[7]' has non three-state driver 'C5267/Z_7'. (LINT-34)
-Warning: In design 'geofence', three-state bus 'radicand_in[8]' has non three-state driver 'C5267/Z_8'. (LINT-34)
-Warning: In design 'geofence', three-state bus 'radicand_in[9]' has non three-state driver 'C5267/Z_9'. (LINT-34)
-Warning: In design 'geofence', three-state bus 'radicand_in[10]' has non three-state driver 'C5267/Z_10'. (LINT-34)
-Warning: In design 'geofence', three-state bus 'radicand_in[11]' has non three-state driver 'C5267/Z_11'. (LINT-34)
-Warning: In design 'geofence', three-state bus 'radicand_in[12]' has non three-state driver 'C5267/Z_12'. (LINT-34)
-Warning: In design 'geofence', three-state bus 'radicand_in[13]' has non three-state driver 'C5267/Z_13'. (LINT-34)
-Warning: In design 'geofence', three-state bus 'radicand_in[14]' has non three-state driver 'C5267/Z_14'. (LINT-34)
-Warning: In design 'geofence', three-state bus 'radicand_in[15]' has non three-state driver 'C5267/Z_15'. (LINT-34)
-Warning: In design 'geofence', three-state bus 'radicand_in[16]' has non three-state driver 'C5267/Z_16'. (LINT-34)
-Warning: In design 'geofence', three-state bus 'radicand_in[17]' has non three-state driver 'C5267/Z_17'. (LINT-34)
-Warning: In design 'geofence', three-state bus 'radicand_in[18]' has non three-state driver 'C5267/Z_18'. (LINT-34)
-Warning: In design 'geofence', three-state bus 'radicand_in[19]' has non three-state driver 'C5267/Z_19'. (LINT-34)
-Warning: In design 'geofence', three-state bus 'radicand_in[20]' has non three-state driver 'C5267/Z_20'. (LINT-34)
-Warning: In design 'geofence', three-state bus 'radicand_in[21]' has non three-state driver 'C5267/Z_21'. (LINT-34)
-Warning: In design 'geofence', three-state bus 'radicand_in[22]' has non three-state driver 'C5267/Z_22'. (LINT-34)
-Warning: In design 'geofence', three-state bus 'radicand_in[23]' has non three-state driver 'C5267/Z_23'. (LINT-34)
 1
 set high_fanout_net_threshold 0
 0
@@ -273,8 +244,6 @@ uniquify
 set_fix_multiple_port_nets -all -buffer_constants [get_designs *]
 1
 #Synthesis all design
-#compile -map_effort high -area_effort high
-#compile -map_effort high -area_effort high -inc
 compile
 Information: Checking out the license 'DesignWare'. (SEC-104)
 Information: Evaluating DesignWare library utilization. (UISN-27)
@@ -287,7 +256,7 @@ Information: Evaluating DesignWare library utilization. (UISN-27)
 ============================================================================
 
 
-Information: There are 30 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+Information: There are 6 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
 
 
 Warning: Operating condition slow set on design geofence has different process,
@@ -296,46 +265,45 @@ fast is characterized. Delays may be inaccurate as a result. (OPT-998)
 
   Beginning Pass 1 Mapping
   ------------------------
+  Processing 'DW_sqrt_inst'
   Processing 'geofence'
-Warning: Cell 'U61/U1' (*GEN*138) cannot be exactly translated 1 for 1 into target library.  Ignoring set_compile_directives. (TRANS-9)
-Error: Width mismatch on port 'square_root' of reference to 'DW_sqrt_inst' in 'geofence'. (LINK-3)
-Warning: Unable to resolve reference 'DW_sqrt_inst' in 'geofence'. (LINK-5)
 
   Updating timing information
 Information: Updating design information... (UID-85)
 
   Beginning Implementation Selection
   ----------------------------------
+  Mapping 'geofence_DW_cmp_0'
   Processing 'geofence_DW01_sub_0'
   Processing 'geofence_DW01_sub_1'
   Processing 'geofence_DW01_sub_2'
-  Processing 'geofence_DW01_inc_0'
-  Processing 'geofence_DW01_inc_1'
-  Processing 'geofence_DW01_inc_2'
-  Mapping 'geofence_DW_cmp_0'
+  Processing 'geofence_DW01_add_0'
   Processing 'geofence_DW01_sub_3'
+  Processing 'geofence_DW01_add_1'
   Processing 'geofence_DW01_sub_4'
   Processing 'geofence_DW01_sub_5'
-  Processing 'geofence_DW01_add_0'
-  Processing 'geofence_DW01_sub_6'
-  Processing 'geofence_DW01_add_1'
-  Processing 'geofence_DW01_sub_7'
-  Processing 'geofence_DW01_sub_8'
   Mapping 'geofence_DW_cmp_1'
+  Processing 'DW_sqrt_inst_DW_sqrt_0'
   Mapping 'geofence_DW_mult_uns_0'
   Mapping 'geofence_DW_mult_uns_1'
-  Processing 'geofence_DW01_add_2'
-  Processing 'geofence_DW01_add_3'
-  Processing 'geofence_DW01_sub_9'
+  Processing 'geofence_DW01_sub_6'
   Mapping 'geofence_DW_mult_uns_2'
   Mapping 'geofence_DW_mult_uns_3'
+  Processing 'geofence_DW01_sub_7'
+  Processing 'geofence_DW01_sub_8'
+  Processing 'geofence_DW01_sub_9'
   Processing 'geofence_DW01_sub_10'
-  Processing 'geofence_DW01_sub_11'
-  Processing 'geofence_DW01_sub_12'
-  Processing 'geofence_DW01_sub_13'
-  Processing 'geofence_DW01_add_4'
+  Processing 'geofence_DW01_add_2'
   Mapping 'geofence_DW_mult_tc_0'
   Mapping 'geofence_DW_mult_tc_1'
+  Processing 'geofence_DW01_add_3'
+  Processing 'geofence_DW01_add_4'
+  Processing 'geofence_DW01_inc_0'
+  Processing 'geofence_DW01_sub_11'
+  Processing 'geofence_DW01_inc_1'
+  Processing 'geofence_DW01_sub_12'
+  Processing 'geofence_DW01_inc_2'
+  Processing 'geofence_DW01_sub_13'
 
   Beginning Mapping Optimizations  (Medium effort)
   -------------------------------
@@ -347,21 +315,32 @@ Loading db file '/usr/cad/Design_Kit/CBDK_IC_Contest_v2.5/SynopsysDC/db/fast.db'
    ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
   --------- --------- --------- --------- --------- ------------------------- -----------
-    0:00:05   92140.0      0.00       0.0       8.3                                0.00  
-    0:00:05   92140.0      0.00       0.0       8.3                                0.00  
-    0:00:05   92140.0      0.00       0.0       8.3                                0.00  
-    0:00:05   92140.0      0.00       0.0       8.3                                0.00  
-    0:00:05   92140.0      0.00       0.0       8.3                                0.00  
-    0:00:06   52658.4      0.00       0.0       4.4                                0.00  
-    0:00:06   52497.2      0.00       0.0       4.4                                0.00  
-    0:00:06   52497.2      0.00       0.0       4.4                                0.00  
-    0:00:06   52497.2      0.00       0.0       4.4                                0.00  
-    0:00:06   52497.2      0.00       0.0       4.4                                0.00  
-    0:00:06   52497.2      0.00       0.0       4.4                                0.00  
-    0:00:06   52493.8      0.00       0.0       0.0                                0.00  
-    0:00:06   52493.8      0.00       0.0       0.0                                0.00  
-    0:00:06   52493.8      0.00       0.0       0.0                                0.00  
-    0:00:06   52493.8      0.00       0.0       0.0                                0.00  
+    0:00:05   98041.8      0.00       0.0       9.9                                0.00  
+    0:00:05   98041.8      0.00       0.0       9.9                                0.00  
+    0:00:05   98041.8      0.00       0.0       9.9                                0.00  
+    0:00:05   98041.8      0.00       0.0       9.9                                0.00  
+    0:00:06   98041.8      0.00       0.0       9.9                                0.00  
+    0:00:06   55652.7     31.11    1391.1       4.4                                0.00  
+    0:00:07   59123.8     14.51     627.8       4.4                                0.00  
+    0:00:07   58490.7     12.79     548.5       4.4                                0.00  
+    0:00:07   58595.9     12.66     542.5       4.4                                0.00  
+    0:00:07   58575.6     12.55     536.7       4.4                                0.00  
+    0:00:07   58607.8     11.50     488.9       4.4                                0.00  
+    0:00:08   58619.7     11.60     493.3       4.4                                0.00  
+    0:00:08   58601.0     11.86     505.6       4.4                                0.00  
+    0:00:08   58618.0     11.60     493.3       4.4                                0.00  
+    0:00:08   58601.0     11.86     505.6       4.4                                0.00  
+    0:00:08   58595.9     11.49     488.3       4.4                                0.00  
+    0:00:08   58595.9     11.49     488.3       4.4                                0.00  
+    0:00:08   58595.9     11.49     488.3       4.4                                0.00  
+    0:00:08   58595.9     11.49     488.3       4.4                                0.00  
+    0:00:08   58592.6     11.49     488.3       0.0                                0.00  
+    0:00:08   58592.6     11.49     488.3       0.0                                0.00  
+    0:00:08   58592.6     11.49     488.3       0.0                                0.00  
+    0:00:08   58592.6     11.49     488.3       0.0                                0.00  
+    0:00:08   59380.1      7.95     323.5       0.8 s0_ff_reg[11]/D                0.00  
+    0:00:09   60186.4      3.69     136.6       0.8 s2_ff_reg[6]/D                 0.00  
+    0:00:09   60982.5      0.00       0.0       0.9 s0_ff_reg[11]/D                0.00  
 
 
 
@@ -372,9 +351,9 @@ Loading db file '/usr/cad/Design_Kit/CBDK_IC_Contest_v2.5/SynopsysDC/db/fast.db'
    ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
   --------- --------- --------- --------- --------- ------------------------- -----------
-    0:00:06   52493.8      0.00       0.0       0.0                                0.00  
-    0:00:06   52493.8      0.00       0.0       0.0                                0.00  
-    0:00:07   52242.6      0.00       0.0      31.3                                0.00  
+    0:00:09   60982.5      0.00       0.0       0.9                                0.00  
+    0:00:09   60982.5      0.00       0.0       0.9                                0.00  
+    0:00:09   60904.4      0.00       0.0      28.9                                0.00  
 
 
   Beginning Design Rule Fixing  (max_transition)  (max_capacitance)
@@ -384,8 +363,8 @@ Loading db file '/usr/cad/Design_Kit/CBDK_IC_Contest_v2.5/SynopsysDC/db/fast.db'
    ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
   --------- --------- --------- --------- --------- ------------------------- -----------
-    0:00:07   52242.6      0.00       0.0      31.3                                0.00  
-    0:00:07   52444.6      0.00       0.0       0.0                                0.00  
+    0:00:09   60904.4      0.00       0.0      28.9                                0.00  
+    0:00:09   60862.0      0.00       0.0       0.0                                0.00  
 
 
   Beginning Area-Recovery Phase  (cleanup)
@@ -395,22 +374,25 @@ Loading db file '/usr/cad/Design_Kit/CBDK_IC_Contest_v2.5/SynopsysDC/db/fast.db'
    ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
   --------- --------- --------- --------- --------- ------------------------- -----------
-    0:00:07   52444.6      0.00       0.0       0.0                                0.00  
-    0:00:07   52444.6      0.00       0.0       0.0                                0.00  
-    0:00:07   52098.3      0.00       0.0       0.0                                0.00  
-    0:00:07   51918.4      0.00       0.0       0.0                                0.00  
-    0:00:07   51792.8      0.00       0.0       0.0                                0.00  
-    0:00:07   51713.0      0.00       0.0       0.0                                0.00  
-    0:00:07   51665.5      0.00       0.0       0.0                                0.00  
-    0:00:07   51665.5      0.00       0.0       0.0                                0.00  
-    0:00:07   51665.5      0.00       0.0       0.0                                0.00  
-    0:00:07   51658.7      0.00       0.0       0.0                                0.00  
-    0:00:07   51658.7      0.00       0.0       0.0                                0.00  
-    0:00:07   51658.7      0.00       0.0       0.0                                0.00  
-    0:00:07   51658.7      0.00       0.0       0.0                                0.00  
-    0:00:07   51658.7      0.00       0.0       0.0                                0.00  
-    0:00:07   51658.7      0.00       0.0       0.0                                0.00  
-    0:00:07   51658.7      0.00       0.0       0.0                                0.00  
+    0:00:09   60862.0      0.00       0.0       0.0                                0.00  
+    0:00:09   60862.0      0.00       0.0       0.0                                0.00  
+    0:00:10   60203.4      0.21       4.6       0.0                                0.00  
+    0:00:10   60013.3      0.21       4.6       0.0                                0.00  
+    0:00:10   59889.4      0.22       4.7       0.0                                0.00  
+    0:00:10   59809.6      0.22       4.8       0.0                                0.00  
+    0:00:10   59755.3      0.22       4.8       0.0                                0.00  
+    0:00:10   59755.3      0.22       4.8       0.0                                0.00  
+    0:00:10   59787.5      0.00       0.0       0.0                                0.00  
+    0:00:10   58674.0      2.02      61.9       0.0                                0.00  
+    0:00:10   58539.9      2.16      64.9       0.0                                0.00  
+    0:00:10   58524.7      2.16      64.9       0.0                                0.00  
+    0:00:10   58524.7      2.16      64.9       0.0                                0.00  
+    0:00:10   58524.7      2.16      64.9       0.0                                0.00  
+    0:00:10   58524.7      2.16      64.9       0.0                                0.00  
+    0:00:10   58524.7      2.16      64.9       0.0                                0.00  
+    0:00:10   58524.7      2.16      64.9       0.0                                0.00  
+    0:00:11   58991.4      0.26       4.8       0.0 s1_ff_reg[0]/D                 0.00  
+    0:00:11   58998.2      0.00       0.0       0.0                                0.00  
 Loading db file '/usr/cad/Design_Kit/CBDK_IC_Contest_v2.5/SynopsysDC/db/slow.db'
 
 
@@ -420,16 +402,15 @@ Note: Symbol # after min delay cost means estimated hold TNS across all active s
   Optimization Complete
   ---------------------
 1
+#compile -map_effort high -area_effort high
+#compile -map_effort high -area_effort high -inc
 write -format ddc     -hierarchy -output "geofence_syn.ddc"
-Error: Width mismatch on port 'square_root' of reference to 'DW_sqrt_inst' in 'geofence'. (LINK-3)
-Warning: Unable to resolve reference 'DW_sqrt_inst' in 'geofence'. (LINK-5)
 Writing ddc file 'geofence_syn.ddc'.
 1
 write_sdf -version 1.0  geofence_syn.sdf
 Information: Annotated 'cell' delays are assumed to include load delay. (UID-282)
 Information: Writing timing information to file '/home/rain/IC_contest/2021_grad_cell_B/geofence_syn.sdf'. (WT-3)
 Information: Updating design information... (UID-85)
-Warning: Design contains black-box components.  These cells will have no timing information. (WT-7)
 1
 write -format verilog -hierarchy -output geofence_syn.v
 Writing verilog file '/home/rain/IC_contest/2021_grad_cell_B/geofence_syn.v'.

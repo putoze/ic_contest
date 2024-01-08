@@ -1,0 +1,1 @@
+ncverilog -sv tb.sv geofence.v -debug

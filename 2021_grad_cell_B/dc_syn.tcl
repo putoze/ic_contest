@@ -1,3 +1,4 @@
+source synopsys_dc.setup
 #Read All Files
 read_file -format verilog  geofence.v
 #read_file -format sverilog  geofence.v
@@ -12,9 +13,9 @@ uniquify
 set_fix_multiple_port_nets -all -buffer_constants [get_designs *]
 
 #Synthesis all design
+compile
 #compile -map_effort high -area_effort high
 #compile -map_effort high -area_effort high -inc
-compile
 
 write -format ddc     -hierarchy -output "geofence_syn.ddc"
 write_sdf -version 1.0  geofence_syn.sdf

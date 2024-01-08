@@ -5,9 +5,9 @@
 
 module geofence ( 
     // Input signals
-	clk,reset,X,Y,R,
-    // Output signals		
-	valid,is_inside);
+    clk,reset,X,Y,R,
+    // Output signals       
+    valid,is_inside);
 
 //================================================================
 //  INPUT AND OUTPUT DECLARATION                         
@@ -37,7 +37,6 @@ reg [2:0]  loc_ff_pt, loc_ff_cnt;
 reg [2:0]  curr_state, next_state;
 reg [30:0] loc_ff [0:5];
 reg [PRECITION/2-1:0] s_ff,s0_ff,s1_ff,s2_ff;  //s_ff alse store √s(s−a) , s0_ff also store  √s-b(s−c)
-reg [PRECITION-1:0] dis_a_square_ff;
 reg signed [PRECITION-1:0] polygon_area,hero_area;
 
 //wire
@@ -62,10 +61,8 @@ wire [2:0] loc_ff_down_cnt = loc_ff_cnt - 'd1;
 wire [2:0] loc_ff_up_cnt   = loc_ff_cnt + 'd1;
 wire [2:0] loc_ff_down_pt  = loc_ff_pt  - 'd1;
 wire [2:0] loc_ff_down_cnt_down = loc_ff_down_cnt - 'd1;
-
 //cross
-wire signed [PRECITION-1:0] cross_result = (loc_x[loc_ff_cnt] - ref_x)*(loc_y[loc_ff_pt]-ref_y) -
-(loc_x[loc_ff_pt] - ref_x)*(loc_y[loc_ff_cnt]-ref_y);
+reg  signed [PRECITION-1:0] cross_result;
 
 wire cross_result_lr_zero = cross_result >= 0; //cross_result larger than 0
 
@@ -137,7 +134,7 @@ end
 //================================================================
 
 
-DW_sqrt_inst sqrt (.radicand(radicand_in), .square_root(square_root_out));
+DW_sqrt_inst #(.radicand_width(PRECITION)) sqrt (.radicand(radicand_in), .square_root(square_root_out));
 
 // FSM
 always @(posedge clk or posedge reset) begin
@@ -163,24 +160,27 @@ always @(*) begin
     endcase
 end
 
+//cross_result
+always @(*) begin
+    case (curr_state)
+        STATE_SORT       : cross_result = (loc_x[loc_ff_cnt] - ref_x)*(loc_y[loc_ff_pt]-ref_y) -
+(loc_x[loc_ff_pt] - ref_x)*(loc_y[loc_ff_cnt]-ref_y);
+        STATE_CROSS      : cross_result = (loc_x[loc_ff_cnt] - ref_x)*(loc_y[loc_ff_pt]-ref_y) -
+(loc_x[loc_ff_pt] - ref_x)*(loc_y[loc_ff_cnt]-ref_y);
+        STATE_A_ROOT     : cross_result = (loc_a_dis_x)*(loc_a_dis_x) + loc_a_dis_y*loc_a_dis_y;
+        default : cross_result = 'd0;
+    endcase    
+end
+
+
 //radicand_in
 always @(*) begin
     case (curr_state)
-        STATE_A_ROOT     : radicand_in = dis_a_square_ff;
+        STATE_A_ROOT     : radicand_in = cross_result;
         STATE_FRONT_SQRT : radicand_in = s_mul_out;
         STATE_BACK_SQRT  : radicand_in = s_mul_out;
         default : radicand_in = 'd0;
     endcase
-end
-
-//dis_a_square_ff
-always @(posedge clk or posedge reset) begin
-    if(reset) begin
-        dis_a_square_ff <= 'd0;
-    end 
-    else begin
-        dis_a_square_ff <= dis_a_square;
-    end
 end
 
 //s_ff,s0_ff,s1_ff,s2_ff
@@ -294,11 +294,10 @@ endmodule
 //   DW
 //================================================================
 
-module DW_sqrt_inst (radicand, square_root);
-    parameter radicand_width = 24;
-    parameter tc_mode = 1;
+module DW_sqrt_inst #(parameter radicand_width = 24) (radicand, square_root);
+    parameter tc_mode = 0;
     input [radicand_width-1 : 0] radicand;
-    output [radicand_width-1 : 0] square_root;
+    output [radicand_width/2-1 : 0] square_root;
     // Please add +incdir+$SYNOPSYS/dw/sim_ver+ to your verilog simulator
     // command line (for simulation).
     // instance of DW_sqrt

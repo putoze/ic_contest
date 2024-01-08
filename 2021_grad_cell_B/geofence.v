@@ -295,9 +295,9 @@ endmodule
 //================================================================
 
 module DW_sqrt_inst #(parameter radicand_width = 24) (radicand, square_root);
-    parameter tc_mode = 1;
+    parameter tc_mode = 0;
     input [radicand_width-1 : 0] radicand;
-    output [radicand_width-1 : 0] square_root;
+    output [radicand_width/2-1 : 0] square_root;
     // Please add +incdir+$SYNOPSYS/dw/sim_ver+ to your verilog simulator
     // command line (for simulation).
     // instance of DW_sqrt

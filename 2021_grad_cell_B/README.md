@@ -1,14 +1,58 @@
 # 2021_grad_cell_B
 
-題目本身不難理解，相較大學部的，需要多使用開根號的designware。<br>
+## Spec
 
-我自己是focus在low area的部分，所以我總共只用了一顆sqrt的電路。並且也有共用乘法器及外積的電路。
-我喜歡把運算器都放在電路的前端，以方便自己看到底使用了多少的運算器。<br>
+<p align="left">
+<img src="pic/block_design.png " width="600" heigh ="400" />
+</p>
 
-這個LAB也需要考慮精度的問題，所以我把變數參數化，以方便自己調整需要多少bit的精度。<br>
+<p align="left">
+<img src="pic/IO.png " width="600" heigh ="400" />
+</p>
 
-最後的建議，這個題目的clock cycle給很大，基本不用怕timing的問題，把function作對就好。我自己是花太久的時間在設計架構，一直對於硬體使用率過低這塊糾結很久，導致最後slack還有20多。
+## 計算方式
 
+- 海龍
+
+<p align="left">
+<img src="pic/hero.png " width="600" heigh ="400" />
+</p>
+
+- 多邊形
+
+<p align="left">
+<img src="pic/polygon_area.png " width="600" heigh ="400" />
+</p>
+
+- DW_sqrt
+
+<p align="left">
+<img src="pic/dw_sqrt.png " width="600" heigh ="400" />
+</p>
+
+## Example
+
+<p align="left">
+<img src="pic/pic1.png " width="600" heigh ="400" />
+</p>
+
+<p align="left">
+<img src="pic/pic2.png " width="600" heigh ="400" />
+</p>
+
+<p align="left">
+<img src="pic/pic3.png " width="600" heigh ="400" />
+</p>
+
+<p align="left">
+<img src="pic/pic4.png " width="600" heigh ="400" />
+</p>
+
+## Design
+
+<p align="left">
+<img src="pic/design.png " />
+</p>
 
 ### 參考資料
 

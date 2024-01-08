@@ -24,11 +24,11 @@ localparam TOTAL_SORT_TIMES = 40319;  // total sort times 40320
 //================================================================
 
 reg [2:0]  curr_state,next_state;
-reg [2:0]  job_list[0:7];
+reg [2:0]  job_list_ff[0:7];
 reg [2:0]  worker_cnt;
 reg [3:0]  match_cnt;
-reg [9:0]  min_cost_temp;
-reg [9:0]  min_cost;
+reg [9:0]  min_cost_temp_ff;
+reg [9:0]  min_cost_ff;
 reg [15:0] total_sort_cnt;
 
 // FSM flag
@@ -36,15 +36,15 @@ wire rd_done = worker_cnt == 'd7;
 wire total_sort_done = total_sort_cnt == 'd0;
 
 // flag
-wire min_cost_temp_or_cur = min_cost_temp  < min_cost ? 1 : 0;
-wire min_cost_temp_eq_cur = min_cost_temp == min_cost ? 1 : 0;
+wire min_cost_temp_ff_or_cur = min_cost_temp_ff  < min_cost_ff ? 1 : 0;
+wire min_cost_temp_ff_eq_cur = min_cost_temp_ff == min_cost_ff ? 1 : 0;
 
 // Operation
 wire [2:0]  worker_cnt_up       = worker_cnt + 'd1;
 wire [15:0] total_sort_cnt_down = total_sort_cnt - 'd1;
-wire [3:0]  match_cnt_update    = min_cost_temp_or_cur ? 'd1 : min_cost_temp_eq_cur ? match_cnt + 'd1 : match_cnt;
-wire [9:0]  min_cost_update     = min_cost_temp_or_cur ? min_cost_temp : min_cost;
-wire [9:0]  min_cost_temp_sum   = min_cost_temp + Cost;
+wire [3:0]  match_cnt_update    = min_cost_temp_ff_or_cur ? 'd1 : min_cost_temp_ff_eq_cur ? match_cnt + 'd1 : match_cnt;
+wire [9:0]  min_cost_update     = min_cost_temp_ff_or_cur ? min_cost_temp_ff : min_cost_ff;
+wire [9:0]  min_cost_temp_ff_sum   = min_cost_temp_ff + Cost;
 
 // FSM
 wire state_IDLE      = curr_state == 'd0;
@@ -67,11 +67,11 @@ wire [2:0] min_lr_ref_pt = min_job_list_lr_ref_pt[7];
 generate
 	//job_list_r_lr_l
     for (idx = 0; idx < 7; idx = idx + 1) begin : loop_job_list_r_lr_l
-        assign job_list_r_lr_l[idx] = job_list[idx+1] > job_list[idx] ? 1 : 0;
+        assign job_list_r_lr_l[idx] = job_list_ff[idx+1] > job_list_ff[idx] ? 1 : 0;
     end
     //job_list_minus_ref
     for (idx = 0; idx < 8; idx = idx + 1) begin : loop_job_list_minus_ref
-		assign job_list_minus_ref[idx] = job_list[idx] - job_list[ref_pt];
+		assign job_list_minus_ref[idx] = job_list_ff[idx] - job_list_ff[ref_pt];
     end
     //min_job_list_minus_ref
     for (idx = 0; idx < 8; idx = idx + 1) begin : loop_min_job_list_minus_ref
@@ -96,13 +96,13 @@ generate
     for (idx = 0; idx < 8; idx = idx + 1) begin : loop_before_flip_job_list
         always @(*) begin
         	if (idx == ref_pt) begin
-        		before_flip_job_list[idx] = job_list[min_lr_ref_pt];
+        		before_flip_job_list[idx] = job_list_ff[min_lr_ref_pt];
         	end
         	else if (idx == min_lr_ref_pt) begin
-        		before_flip_job_list[idx] = job_list[ref_pt];
+        		before_flip_job_list[idx] = job_list_ff[ref_pt];
         	end
         	else begin
-        		before_flip_job_list[idx] = job_list[idx];
+        		before_flip_job_list[idx] = job_list_ff[idx];
         	end
         end
     end
@@ -117,18 +117,18 @@ generate
         	end
         end
     end
-    //job_list
+    //job_list_ff
     for (idx = 0; idx < 8; idx = idx + 1) begin : loop_job_list
 		always @(posedge CLK or posedge RST) begin
 		    if(RST) begin
-		    	job_list[idx] <= idx;
+		    	job_list_ff[idx] <= idx;
 		    end
 		    else begin
 		        if (state_DICT_SORT) begin
-		        	job_list[idx] <= after_flip_job_list[idx];
+		        	job_list_ff[idx] <= after_flip_job_list[idx];
 		        end
 		        // else if (state_OUT) begin
-		        // 	job_list[idx] <= idx;
+		        // 	job_list_ff[idx] <= idx;
 		        // end
 		    end
 		end
@@ -157,11 +157,11 @@ end
 always @(*) begin
     if (state_RD_COST) begin
     	W = worker_cnt_up;
-    	J = job_list[worker_cnt_up];
+    	J = job_list_ff[worker_cnt_up];
     end
     else begin
     	W = worker_cnt;
-    	J = job_list[worker_cnt];
+    	J = job_list_ff[worker_cnt];
     end
 end
 
@@ -239,30 +239,30 @@ always @(posedge CLK or posedge RST) begin
     end
 end
 
-//min_cost_temp
+//min_cost_temp_ff
 always @(posedge CLK or posedge RST) begin
     if(RST) begin
-        min_cost_temp <= 0;
+        min_cost_temp_ff <= 0;
     end 
     else begin
         if (state_RD_COST) begin
-        	min_cost_temp <= min_cost_temp_sum;
+        	min_cost_temp_ff <= min_cost_temp_ff_sum;
         end
         else begin
-        	min_cost_temp <= 'd0;
+        	min_cost_temp_ff <= 'd0;
         end
     end
 end
 
-////min_cost and match_cnt
+////min_cost_ff and match_cnt
 always @(posedge CLK or posedge RST) begin
     if(RST) begin
-        min_cost  <= 1023;
+        min_cost_ff  <= 1023;
         match_cnt <= 0;
     end 
     else begin
         if (state_DICT_SORT) begin
-        	min_cost  <= min_cost_update;
+        	min_cost_ff  <= min_cost_update;
         	match_cnt <= match_cnt_update;
         end
     end
