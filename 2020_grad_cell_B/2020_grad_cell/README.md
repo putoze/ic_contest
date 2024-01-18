@@ -1,19 +1,4 @@
-# 2021_univ_cell_B
-
-- Area
-<p align="middle">
-  <img src="img/area.png" width="800" />
-</p>
-
-- Timing
-<p align="middle">
-  <img src="img/timing.png" width="800" />
-</p>
-
-- Gate_level
-<p align="middle">
-  <img src="img/gate_level.png" width="800" />
-</p>
+# 2020_grad_cell_B
 
 
 ## 設計方法

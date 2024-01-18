@@ -1,8 +1,6 @@
 
-FTP account:                       
-
-Total simulation cycle (cycle):    
-Simulation score (score):          
+Total simulation cycle (cycle):  1282  
+Simulation score (score):  100        
 
 --- RTL category---
 HDL simulator :                    ncverilog/irun/vcs/vsim/... 

@@ -1,0 +1,473 @@
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+               Version N-2017.09-SP2 for linux64 - Nov 27, 2017 
+
+                    Copyright (c) 1988 - 2017 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+Initializing...
+Initializing gui preferences from file  /home/rain/.synopsys_dv_prefs.tcl
+#Read All Files
+source synopsys_dc.setup
+Information: Variable 'hdlin_translate_off_skip_text' is obsolete and is being ignored. (INFO-100)
+Information: Variable 'hdlin_enable_presto_for_vhdl' is obsolete and is being ignored. (INFO-100)
+Information: Variable 'hdlin_enable_presto_for_vhdl' is obsolete and is being ignored. (INFO-100)
+1
+read_file -format verilog  SME.v
+Loading db file '/usr/cad/Design_Kit/CBDK_IC_Contest_v2.5/SynopsysDC/db/slow.db'
+Loading db file '/usr/cad/Design_Kit/CBDK_IC_Contest_v2.5/SynopsysDC/db/fast.db'
+Loading db file '/usr/cad/synopsys/synthesis/cur/libraries/syn/dw_foundation.sldb'
+Loading db file '/usr/cad/synopsys/synthesis/cur/libraries/syn/gtech.db'
+Loading db file '/usr/cad/synopsys/synthesis/cur/libraries/syn/standard.sldb'
+  Loading link library 'slow'
+  Loading link library 'fast'
+  Loading link library 'gtech'
+Loading verilog file '/home/rain/IC_contest/2020_univ_cell_B/2020_grad_cell/SME.v'
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /home/rain/IC_contest/2020_univ_cell_B/2020_grad_cell/SME.v
+Warning:  /home/rain/IC_contest/2020_univ_cell_B/2020_grad_cell/SME.v:164: A unnamed generate block with an LRM-defined name 'genblk1' is detected, which is incompatible with Verilog standard 2001 or 1995. (VER-944)
+Warning:  /home/rain/IC_contest/2020_univ_cell_B/2020_grad_cell/SME.v:342: signed to unsigned conversion occurs. (VER-318)
+Warning:  /home/rain/IC_contest/2020_univ_cell_B/2020_grad_cell/SME.v:361: signed to unsigned conversion occurs. (VER-318)
+Warning:  /home/rain/IC_contest/2020_univ_cell_B/2020_grad_cell/SME.v:372: signed to unsigned conversion occurs. (VER-318)
+
+Statistics for case statements in always block at line 93 in file
+	'/home/rain/IC_contest/2020_univ_cell_B/2020_grad_cell/SME.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            94            |     no/auto      |
+===============================================
+
+Inferred memory devices in process
+	in routine SME line 83 in file
+		'/home/rain/IC_contest/2020_univ_cell_B/2020_grad_cell/SME.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|   curr_state_reg    | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine SME line 93 in file
+		'/home/rain/IC_contest/2020_univ_cell_B/2020_grad_cell/SME.v'.
+===========================================================================
+|    Register Name    | Type  | Width | Bus | MB | AR | AS | SR | SS | ST |
+===========================================================================
+|   next_state_reg    | Latch |   3   |  Y  | N  | N  | N  | -  | -  | -  |
+===========================================================================
+
+Inferred memory devices in process
+	in routine SME line 107 in file
+		'/home/rain/IC_contest/2020_univ_cell_B/2020_grad_cell/SME.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      match_reg      | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|   match_index_reg   | Flip-flop |   5   |  Y  | N  | Y  | N  | N  | N  | N  |
+|      valid_reg      | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine SME line 170 in file
+		'/home/rain/IC_contest/2020_univ_cell_B/2020_grad_cell/SME.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|  stringdata_ff_reg  | Flip-flop |  271  |  Y  | N  | Y  | N  | N  | N  | N  |
+|  stringdata_ff_reg  | Flip-flop |   1   |  N  | N  | N  | Y  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine SME line 188 in file
+		'/home/rain/IC_contest/2020_univ_cell_B/2020_grad_cell/SME.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|   pattern_ff_reg    | Flip-flop |  32   |  Y  | N  | Y  | N  | N  | N  | N  |
+|   pattern_ff_reg    | Flip-flop |  32   |  Y  | N  | N  | Y  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine SME line 212 in file
+		'/home/rain/IC_contest/2020_univ_cell_B/2020_grad_cell/SME.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|   match_f_ff_reg    | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine SME line 230 in file
+		'/home/rain/IC_contest/2020_univ_cell_B/2020_grad_cell/SME.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|   string_cnt_reg    | Flip-flop |   5   |  Y  | N  | Y  | N  | N  | N  | N  |
+|   string_cnt_reg    | Flip-flop |   1   |  N  | N  | N  | Y  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine SME line 243 in file
+		'/home/rain/IC_contest/2020_univ_cell_B/2020_grad_cell/SME.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+| string_cnt_max_reg  | Flip-flop |   6   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine SME line 253 in file
+		'/home/rain/IC_contest/2020_univ_cell_B/2020_grad_cell/SME.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     pat_cnt_reg     | Flip-flop |   4   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine SME line 268 in file
+		'/home/rain/IC_contest/2020_univ_cell_B/2020_grad_cell/SME.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     star_f_reg      | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|     head_f_reg      | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|      end_f_reg      | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|    star_loc_reg     | Flip-flop |   4   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine SME line 296 in file
+		'/home/rain/IC_contest/2020_univ_cell_B/2020_grad_cell/SME.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     cal_cnt_reg     | Flip-flop |   6   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine SME line 326 in file
+		'/home/rain/IC_contest/2020_univ_cell_B/2020_grad_cell/SME.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    front_cnt_reg    | Flip-flop |   6   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine SME line 432 in file
+		'/home/rain/IC_contest/2020_univ_cell_B/2020_grad_cell/SME.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|  front_or_back_reg  | Flip-flop |   1   |  N  | N  | N  | Y  | N  | N  | N  |
+===============================================================================
+Statistics for MUX_OPs
+======================================================
+| block name/line  | Inputs | Outputs | # sel inputs |
+======================================================
+|     SME/372      |   8    |    8    |      3       |
+======================================================
+Presto compilation completed successfully.
+Current design is now '/home/rain/IC_contest/2020_univ_cell_B/2020_grad_cell/SME.db:SME'
+Loaded 1 design.
+Current design is 'SME'.
+SME
+current_design SME
+Current design is 'SME'.
+{SME}
+link
+
+  Linking design 'SME'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  SME                         /home/rain/IC_contest/2020_univ_cell_B/2020_grad_cell/SME.db
+  slow (library)              /usr/cad/Design_Kit/CBDK_IC_Contest_v2.5/SynopsysDC/db/slow.db
+  fast (library)              /usr/cad/Design_Kit/CBDK_IC_Contest_v2.5/SynopsysDC/db/fast.db
+  dw_foundation.sldb (library) /usr/cad/synopsys/synthesis/cur/libraries/syn/dw_foundation.sldb
+
+1
+#Setting Clock Constraints
+source -echo -verbose SME.sdc
+# operating conditions and boundary conditions #
+set cycle 20.0
+20.0
+create_clock -name clk  -period $cycle   [get_ports  clk] 
+1
+set_dont_touch_network      [all_clocks]
+1
+set_fix_hold                [all_clocks]
+1
+set_clock_uncertainty  0.1  [all_clocks]
+1
+set_clock_latency      0.5  [all_clocks]
+1
+set_ideal_network           [get_ports clk]
+1
+#Don't touch the basic env setting as below
+set_input_delay  0   -clock clk [remove_from_collection [all_inputs] [get_ports clk]] -clock_fall
+1
+set_output_delay 0    -clock clk [all_outputs]  -clock_fall
+1
+set_load         1   [all_outputs]
+1
+set_drive        0.1   [all_inputs]
+1
+set_operating_conditions -max_library slow -max slow
+Using operating conditions 'slow' found in library 'slow'.
+1
+set_wire_load_model -name tsmc13_wl10 -library slow                        
+1
+set_max_fanout 20 [all_inputs]
+1
+1
+check_design
+ 
+****************************************
+check_design summary:
+Version:     N-2017.09-SP2
+Date:        Thu Jan 18 16:34:27 2024
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Cells                                                              10
+    Cells do not drive (LINT-1)                                    10
+--------------------------------------------------------------------------------
+
+Warning: In design 'SME', cell 'B_319' does not drive any nets. (LINT-1)
+Warning: In design 'SME', cell 'C4618' does not drive any nets. (LINT-1)
+Warning: In design 'SME', cell 'C4664' does not drive any nets. (LINT-1)
+Warning: In design 'SME', cell 'C4688' does not drive any nets. (LINT-1)
+Warning: In design 'SME', cell 'C4995' does not drive any nets. (LINT-1)
+Warning: In design 'SME', cell 'C4998' does not drive any nets. (LINT-1)
+Warning: In design 'SME', cell 'C5027' does not drive any nets. (LINT-1)
+Warning: In design 'SME', cell 'C5035' does not drive any nets. (LINT-1)
+Warning: In design 'SME', cell 'C5036' does not drive any nets. (LINT-1)
+Warning: In design 'SME', cell 'C5037' does not drive any nets. (LINT-1)
+1
+set high_fanout_net_threshold 0
+0
+uniquify
+1
+set_fix_multiple_port_nets -all -buffer_constants [get_designs *]
+1
+#Synthesis all design
+#compile -map_effort high -area_effort high
+#compile -map_effort high -area_effort high -inc
+compile
+Information: Checking out the license 'DesignWare'. (SEC-104)
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | N-2017.09-DWBB_201709.2 |     *     |
+| Licensed DW Building Blocks        | N-2017.09-DWBB_201709.2 |     *     |
+============================================================================
+
+
+Information: There are 10 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+Warning: Operating condition slow set on design SME has different process,
+voltage and temperatures parameters than the parameters at which target library 
+fast is characterized. Delays may be inaccurate as a result. (OPT-998)
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'SME'
+Information: Added key list 'DesignWare' to design 'SME'. (DDB-72)
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+  Beginning Implementation Selection
+  ----------------------------------
+  Mapping 'SME_DW_cmp_0'
+  Processing 'SME_DW01_inc_0'
+  Mapping 'SME_DW_cmp_1'
+  Processing 'SME_DW01_add_0'
+  Mapping 'SME_DW_cmp_2'
+  Processing 'SME_DW01_add_1'
+  Mapping 'SME_DW_cmp_3'
+  Processing 'SME_DW01_add_2'
+  Mapping 'SME_DW_cmp_4'
+  Processing 'SME_DW01_add_3'
+  Mapping 'SME_DW_cmp_5'
+  Processing 'SME_DW01_add_4'
+  Mapping 'SME_DW_cmp_6'
+  Processing 'SME_DW01_add_5'
+  Mapping 'SME_DW_cmp_7'
+  Processing 'SME_DW01_inc_1'
+  Mapping 'SME_DW_cmp_8'
+  Processing 'SME_DW01_add_6'
+  Mapping 'SME_DW_cmp_9'
+  Processing 'SME_DW01_add_7'
+  Mapping 'SME_DW_cmp_10'
+  Processing 'SME_DW01_add_8'
+  Mapping 'SME_DW_cmp_11'
+  Processing 'SME_DW01_add_9'
+  Mapping 'SME_DW_cmp_12'
+  Processing 'SME_DW01_add_10'
+  Mapping 'SME_DW_cmp_13'
+  Processing 'SME_DW01_add_11'
+  Mapping 'SME_DW_cmp_14'
+  Processing 'SME_DW01_add_12'
+  Mapping 'SME_DW_cmp_15'
+  Mapping 'SME_DW_cmp_16'
+  Processing 'SME_DW01_dec_0'
+  Processing 'SME_DW01_sub_0'
+  Mapping 'SME_DW_cmp_17'
+  Mapping 'SME_DW_cmp_18'
+  Processing 'SME_DW01_inc_2'
+  Building model 'DW01_NAND2'
+  Processing 'DW01_NAND2'
+  Building model 'DW01_sub_width6' (rpl)
+  Processing 'DW01_sub_width6'
+  Processing 'SME_DW01_add_13'
+  Processing 'SME_DW01_sub_1'
+  Processing 'SME_DW01_add_14'
+  Processing 'SME_DW01_sub_2'
+  Processing 'SME_DW01_inc_3'
+  Mapping 'SME_DW_mult_uns_0'
+  Processing 'SME_DW01_add_15'
+  Mapping 'SME_DW_mult_uns_1'
+  Processing 'SME_DW01_add_16'
+  Processing 'SME_DW01_add_17'
+  Processing 'SME_DW01_sub_3'
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+Loading db file '/usr/cad/Design_Kit/CBDK_IC_Contest_v2.5/SynopsysDC/db/fast.db'
+  Mapping Optimization (Phase 1)
+
+                                  TOTAL                                                  
+   ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
+  --------- --------- --------- --------- --------- ------------------------- -----------
+    0:00:08   64441.8      0.00       0.0      84.4                                0.00  
+    0:00:08   64441.8      0.00       0.0      84.4                                0.00  
+    0:00:08   64441.8      0.00       0.0      84.4                                0.00  
+    0:00:08   64441.8      0.00       0.0      84.4                                0.00  
+    0:00:08   64441.8      0.00       0.0      84.4                                0.00  
+    0:00:08   41095.8      0.00       0.0      82.0                                0.00  
+    0:00:08   41065.2      0.00       0.0      82.0                                0.00  
+    0:00:09   41065.2      0.00       0.0      70.5                                0.00  
+    0:00:09   41065.2      0.00       0.0      70.5                                0.00  
+    0:00:09   41065.2      0.00       0.0      70.5                                0.00  
+    0:00:09   41065.2      0.00       0.0      70.5                                0.00  
+    0:00:09   41065.2      0.00       0.0      70.5                                0.00  
+    0:00:09   41153.5      0.00       0.0      37.6                                0.00  
+    0:00:09   41214.6      0.00       0.0      28.6                                0.00  
+    0:00:09   41245.1      0.00       0.0      21.3                                0.00  
+    0:00:09   41267.2      0.00       0.0      16.9                                0.00  
+    0:00:09   41280.8      0.00       0.0      13.0                                0.00  
+    0:00:09   41289.3      0.00       0.0      10.2                                0.00  
+    0:00:09   41296.0      0.00       0.0       7.8                                0.00  
+    0:00:09   41302.8      0.00       0.0       5.3                                0.00  
+    0:00:09   41304.5      0.00       0.0       4.0                                0.00  
+    0:00:09   41304.5      0.00       0.0       4.0                                0.00  
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                                  
+   ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
+  --------- --------- --------- --------- --------- ------------------------- -----------
+    0:00:09   41304.5      0.00       0.0       4.0                                0.00  
+    0:00:09   41304.5      0.00       0.0       4.0                                0.00  
+    0:00:10   39960.2      0.00       0.0     284.4                                0.00  
+
+
+  Beginning Design Rule Fixing  (max_transition)  (max_capacitance)
+  ----------------------------
+
+                                  TOTAL                                                  
+   ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
+  --------- --------- --------- --------- --------- ------------------------- -----------
+    0:00:10   39960.2      0.00       0.0     284.4                                0.00  
+    0:00:11   40155.4      0.00       0.0     162.9 net21474                       0.00  
+    0:00:11   40155.4      0.00       0.0     143.1 net21579                       0.00  
+    0:00:11   40155.4      0.00       0.0     123.4 net21468                       0.00  
+    0:00:11   40155.4      0.00       0.0     103.8 net21551                       0.00  
+    0:00:11   40155.4      0.00       0.0      84.2 net21672                       0.00  
+    0:00:11   40155.4      0.00       0.0      64.7 net21645                       0.00  
+    0:00:11   40160.5      0.00       0.0      51.5 net21678                       0.00  
+    0:00:11   40160.5      0.00       0.0      38.5 net21522                       0.00  
+    0:00:11   40160.5      0.00       0.0      25.6 net21513                       0.00  
+    0:00:11   40160.5      0.00       0.0      12.8 net21607                       0.00  
+    0:00:12   40170.7      0.00       0.0       4.7 net21625                       0.00  
+    0:00:12   40184.2      0.00       0.0       0.3 end_f                          0.00  
+    0:00:12   40185.9      0.00       0.0       0.0                                0.00  
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                                  
+   ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
+  --------- --------- --------- --------- --------- ------------------------- -----------
+    0:00:12   40185.9      0.00       0.0       0.0                                0.00  
+    0:00:12   40185.9      0.00       0.0       0.0                                0.00  
+    0:00:12   39717.5      0.00       0.0       0.0                                0.00  
+    0:00:12   39372.9      0.00       0.0       0.0                                0.00  
+    0:00:12   39082.6      0.00       0.0       0.0                                0.00  
+    0:00:12   38822.9      0.00       0.0       0.0                                0.00  
+    0:00:12   38704.1      0.00       0.0       0.0                                0.00  
+    0:00:12   38641.3      0.00       0.0       0.0                                0.00  
+    0:00:12   38641.3      0.00       0.0       0.0                                0.00  
+    0:00:12   38641.3      0.00       0.0       0.0                                0.00  
+    0:00:12   38627.7      0.00       0.0       0.0                                0.00  
+    0:00:12   38627.7      0.00       0.0       0.0                                0.00  
+    0:00:12   38627.7      0.00       0.0       0.0                                0.00  
+    0:00:12   38627.7      0.00       0.0       0.0                                0.00  
+    0:00:12   38627.7      0.00       0.0       0.0                                0.00  
+    0:00:12   38627.7      0.00       0.0       0.0                                0.00  
+    0:00:12   38627.7      0.00       0.0       0.0                                0.00  
+Loading db file '/usr/cad/Design_Kit/CBDK_IC_Contest_v2.5/SynopsysDC/db/slow.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+1
+write -format ddc     -hierarchy -output "SME_syn.ddc"
+Writing ddc file 'SME_syn.ddc'.
+1
+write_sdf -version 1.0  SME_syn.sdf
+Information: Annotated 'cell' delays are assumed to include load delay. (UID-282)
+Information: Writing timing information to file '/home/rain/IC_contest/2020_univ_cell_B/2020_grad_cell/SME_syn.sdf'. (WT-3)
+Information: Updating design information... (UID-85)
+1
+write -format verilog -hierarchy -output SME_syn.v
+Writing verilog file '/home/rain/IC_contest/2020_univ_cell_B/2020_grad_cell/SME_syn.v'.
+1
+report_area > area.log
+report_timing > timing.log
+report_qor   >  SME_syn.qor
+dc_shell> exit
+
+Thank you...
